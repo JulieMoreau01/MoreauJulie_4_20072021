@@ -119,6 +119,7 @@
   @media screen and (max-width: 768px) {
     header.topnav nav ul {
         transform: translateY(-280px);
+        opacity: 0;
         transition: transform 1s ease-in-out;
         padding: 10px;
         position: absolute;
@@ -132,6 +133,8 @@
     }
     header.topnav.responsive nav ul {
         transform: translateY(0px);
+        opacity: 1;
+
     }
     header.topnav.responsive nav ul li {
         margin-bottom: 10px;
