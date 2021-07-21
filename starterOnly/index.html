@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8" />
-    <title>Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="modal.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans"
-      rel="stylesheet"
-    />
+    <!--Feuille de style CSS-->
+    <link rel="stylesheet" href="public/css/base.css" />
+    <link rel="stylesheet" href="public/css/index.css" />
+    <link rel="stylesheet" href="public/css/formulaire.css" />
+    <!--Kit Font Awesome-->
+    <script src="https://kit.fontawesome.com/ec3fbf9ee5.js" crossorigin="anonymous"></script>
+    <!--Google font DM SANS 400 500 et 700-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <title>GameOn - Réservation</title>
   </head>
+
+
   <body>
-    <div class="topnav" id="myTopnav">
-      <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
-    </div>
-    <div class="main-navbar">
-      
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-    </div>
-  </div>
+
+    <header class="topnav" id="myTopnav">
+
+    <figure><img alt="logo" src="public/images/logo.png" width="auto" height="auto" /></figure>
+
+      <nav>
+        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+        <ul>
+          <li><a href="#" class="active"><span>Event details</span></a></li>
+          <li><a href="#"><span>About us</span></a></li>
+          <li><a href="#"><span>Contact</span></a></li>
+          <li><a href="#"><span>Pass events</span></a></li>
+        </ul>
+      </nav>
+
+    </header>
+
     <main>
-      <div class="hero-section">
+      <section class="hero-section">
         <div class="hero-content">
           <h1 class="hero-headline">
             Marathon national<br>
@@ -45,12 +54,12 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="public/images/bg_img.jpg" alt="img" />
         </div>
         <button class="btn-signup modal-btn">
           je m'inscris
         </button>
-      </div>
+      </section>
 
       <div class="bground">
         <div class="content">
@@ -215,6 +224,6 @@
         Copyright 2014 - 2020, GameOn Inc.
       </p>
     </footer>
-    <script src="modal.js"></script>
+    <script src="public/js/modal.js"></script>
   </body>
 </html>
