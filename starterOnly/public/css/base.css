@@ -30,18 +30,9 @@
   }
   
   .topnav, main, footer {
-    max-width: 1320px;
+    max-width: 1340px;
     width: 100%;
-    padding: 0px 40px;
-  }
-
-  main {
-    font-size: 130%;
-    font-weight: bolder;
-    color: black;
-    padding-top: 0.5vw;
-    border-radius: 2rem;
-    text-align: justify;
+    padding: 0px 30px;
   }
 
 
@@ -161,37 +152,24 @@
 
     /* Boutons */
 
-  .modal-btn {
-    font-size: 145%;
-    background: var(--color-primaire);
-    display: flex;
-    margin: auto;
-    padding: 2em;
+  .modal-btn, .btn-submit {
+    font-size: 25px;
+    font-weight: 500;
     color: #fff;
-    padding: 0.75rem 2.5rem;
-    border-radius: 1rem;
+    background: var(--color-primaire);
+    margin: 0;
+    padding: 11px 26px;
+    border-radius: 8px;
     cursor: pointer;
+    width: max-content;
+    outline: none;
+    border: none;
   }
   
   .modal-btn:hover {
     background: #3876ac;
   }
   
-  /* Modal form */
-  
-  .button {
-    background: var(--color-primaire);
-    margin-top: 0.5em;
-    padding: 1em;
-    color: #fff;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .button:hover {
-    background: #3876ac;
-  }
 
     /* Class utile */
   
