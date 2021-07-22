@@ -44,13 +44,18 @@ h1.hero-headline {
   font-size: 96px;
   font-weight: 500;
   color: white;
-  width: 60%;
+  width: 100%;
   order: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  h1.hero-headline {
+    font-size: 68px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   h1.hero-headline {
-    width: 100%;
     font-size: 48px;
     color: var(--color-secondaire);
     margin-bottom: 25px;
@@ -73,7 +78,6 @@ p.hero-text {
     margin-bottom: 25px;
   }
 }
-
 
 main section.hero-section img {
   position: absolute;

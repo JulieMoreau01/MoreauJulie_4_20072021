@@ -40,14 +40,26 @@
   
   header.topnav {
     overflow: hidden;
-    margin: 3.5% 0px;
+    margin: 60px 0px 80px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
+  @media screen and (max-width: 768px) {
+    header.topnav {
+        margin: 30px 0px 30px 0px;
+    }
+  }
+
   header.topnav figure img {
     height: 50px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    header.topnav figure img {
+      height: 40px;
+    }
   }
 
   @media screen and (max-width: 768px) {
@@ -98,6 +110,7 @@
   header.topnav nav .icon {
     display: none;
     color: var(--color-primaire);
+    font-family:  "Font Awesome 5 Free" !important;
   }
   
   @media screen and (max-width: 768px) {
@@ -133,12 +146,6 @@
   }
 
   /************* FOOTER **************/
-
-  footer {
-    padding-left: 2vw;
-    padding-right: 2vw;
-    margin: 0 20px;
-  }
 
   footer .copyrights {
     color: var(--color-primaire);

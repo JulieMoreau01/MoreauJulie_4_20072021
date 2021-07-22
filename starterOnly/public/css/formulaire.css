@@ -8,6 +8,7 @@
     width: 100%;
     overflow: auto;
     background-color: rgba(26, 39, 156, 0.4);
+    padding: 0px 30px;
   }
   
 
@@ -27,15 +28,23 @@
   
   label {
     font-family: var(--font-default);
-    font-size: 17px;
-    font-weight: normal;
+    font-size: 14px;
+    font-weight: 400;
     display: inline-block;
-    margin-bottom: 11px;
+    margin-bottom: 17px;
   }
   input {
     padding: 8px;
     border: 0.8px solid #ccc;
     outline: none;
+    border-radius: 8px;
+  }
+
+  .error {
+      color: var(--color-primaire);
+      font-size: 10px;
+      display: block;
+      margin-top: 6px;
   }
   .text-control {
     margin: 0;
@@ -113,6 +122,11 @@
   .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
     opacity: 1;
   }
+
+  .checkbox-input:checked {
+      background-color: yellow !important;
+  }
+
   .checkbox-input:checked + .checkbox2-label .checkbox-icon {
     background: var(--color-tertiaire);
   }
@@ -158,18 +172,7 @@
   .close:after {
     transform: rotate(-45deg);
   }
-  .btn-submit,
-  .btn-signup {
-    background: var(--color-primaire);
-    display: block;
-    margin: 0 auto;
-    border-radius: 7px;
-    font-size: 1rem;
-    padding: 12px 82px;
-    color: #fff;
-    cursor: pointer;
-    border: 0;
-  }
+
   /* custom select styles */
   .custom-select {
     position: relative;
