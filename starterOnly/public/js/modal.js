@@ -12,11 +12,11 @@ function editNav() {
 
 /** OUVERTURE FERMETURE DE LA POP UP */
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
+const heroBtn = document.querySelectorAll(".btn-hero");
 const modalBtnClose = document.querySelectorAll(".close");
 
 // launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+heroBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 function launchModal() {
   modalbg.style.display = "block";
@@ -28,7 +28,6 @@ modalBtnClose.forEach((btn) => btn.addEventListener("click", closeModal));
 function closeModal() {
   modalbg.style.display = "none";
 }
-
 
 
 /** VALIDATION PRENOM */
@@ -215,9 +214,11 @@ function validateForm() {
   checkQuantity = quantity();
   checkRadioButton = radioButton();
   if ((checkCheckbox == true) && (checkQuantity == true) && (checkRadioButton == true) && (checkEmail == true) && (checkDate == true) ) {
+    console.log( "GOOD");
     success();
     return false;
   } else {
+    console.log( "BAD");
     return false;
   }
 };
@@ -226,7 +227,10 @@ function validateForm() {
 function success() {
   validationSuccess = document.getElementById("successmessage");
   validationSuccess.innerHTML = "<p>Thank you for submitting your registration details</p><p><input class='btn-submit' type='button' value='Close' id='submitButtonClose'/></p>";
-  validationSuccess.classList.add("successmessageclass");
-  submitButton = document.getElementById("submitButtonClose");
-  submitButton.addEventListener("click", closeModal);
+  closeSubmitButton = document.getElementById("submitButtonClose");
+  closeSubmitButton.addEventListener("click", closeModal);
 };
+
+
+
+
