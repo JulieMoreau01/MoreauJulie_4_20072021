@@ -35,6 +35,11 @@
     padding: 0px 30px;
   }
 
+  .successmessageclass {
+    background-color: var(--color-secondaire);
+    color: white;
+  }
+
 
   /************* HEADER **************/
   
