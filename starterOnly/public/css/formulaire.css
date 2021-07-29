@@ -8,7 +8,20 @@
     width: 100%;
     overflow: auto;
     background-color: rgba(26, 39, 156, 0.4);
-    padding: 0px 30px;
+    /*padding: 0px 30px;*/
+  }
+
+ .bground-success {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(26, 39, 156, 0.4);
+    /*padding: 0px 30px;*/
   }
 
   @keyframes modalopen {
@@ -21,18 +34,34 @@
     }
   }
   
-  form {
+  form, .success-message {
     padding: 38px;
     width: 100%;
     max-width: 500px;
     animation-name: modalopen;
     animation-duration: var(--modal-duration);
     background: var(--color-secondaire);
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     position: relative;
     color: #fff;
     margin: 87px auto;
+  }
+
+  .success-message {
+    height: 812px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 36px;
+    text-align: center;
+    padding: 0px;
+  }
+
+  .success-message .block-button {
+    position: absolute;
+    bottom: 18px;
+    width: 100%;
   }
   
   label {
@@ -156,7 +185,7 @@
     top: 19%;
   }
 
-  .close {
+  .close, .close-success {
     position: absolute;
     right: 15px;
     top: 15px;
@@ -168,7 +197,9 @@
   }
 
   .close:before,
-  .close:after {
+  .close:after,
+  .close-success:before,
+  .close-success:after {
     position: absolute;
     left: 15px;
     content: " ";
@@ -177,15 +208,16 @@
     background-color: #fff;
   }
 
-  .close:before {
+  .close:before, .close-success:before {
     transform: rotate(45deg);
   }
   
-  .close:after {
+  .close:after, .close-success:after {
     transform: rotate(-45deg);
   }
 
   .text-label {
     font-weight: normal;
     font-size: 16px;
+    margin-bottom: 17px;
   }

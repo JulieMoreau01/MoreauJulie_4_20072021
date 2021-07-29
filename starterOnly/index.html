@@ -44,10 +44,18 @@
           <figure><img src="public/images/bg_img.jpg" alt="GameOn" /></figure>
       </section>
 
+      <div class="bground-success">
+        <div class="success-message">
+          <span class="close-success"></span>
+          <p>Thank you for<br/>submitting your<br/>registration details</p>
+          <p class="block-button"><button class='btn-success'>Close</p>
+        </div>
+      </div>
+
       <div class="bground">
             <form name="reserve" action="index.html" method="get" onsubmit="return validateForm();">
               <span class="close"></span>
-              <div id="successmessage">
+              
                 <p class="formData">
                   <label for="first">Prénom</label>
                   <input class="text-control" type="text" id="first" name="first" />
@@ -132,7 +140,7 @@
                 <p>
                   <input class="btn-submit" type="submit" value="C'est parti" id="submitButton"/>
                 </p>
-               </div>
+              
             </form>
       </div>
     </main>

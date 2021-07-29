@@ -165,7 +165,7 @@
 
     /* Boutons */
 
-  .btn-hero, .btn-submit {
+  .btn-hero, .btn-submit, .btn-success {
     font-weight: 500;
     color: #fff;
     background: var(--color-primaire);
@@ -182,7 +182,7 @@
     margin: 0;
   }
 
-  .btn-submit {
+  .btn-submit, .btn-success {
     font-size: 14px;
     margin: 0 auto;
     display: block;
