@@ -29,7 +29,7 @@
   }
   
   .topnav, main, footer {
-    max-width: 1340px;
+    max-width: 1300px;
     width: 100%;
     padding: 0px 30px;
   }
@@ -80,11 +80,13 @@
   header.topnav nav ul {
     display: flex;
     list-style: none;
+    margin-right: -17px;
   }
 
   @media screen and (max-width: 768px) {
     header.topnav nav ul {
         flex-direction: column;
+        margin-right: 0px;
     }
   }
 
@@ -102,13 +104,13 @@
   header.topnav nav ul li a:hover {
     background-color: var(--color-primaire);
     color: #ffffff;
-    border-radius: 15px;
+    border-radius: 8px;
   }
   
   header.topnav nav ul li a.active {
     background-color: var(--color-primaire);
     color: #ffffff;
-    border-radius: 15px;
+    border-radius: 8px;
   }
   
   header.topnav nav .icon {
@@ -164,11 +166,9 @@
     /* Boutons */
 
   .btn-hero, .btn-submit {
-    font-size: 25px;
     font-weight: 500;
     color: #fff;
     background: var(--color-primaire);
-    margin: 0;
     padding: 11px 26px;
     border-radius: 8px;
     cursor: pointer;
@@ -176,19 +176,14 @@
     outline: none;
     border: none;
   }
-  
 
-    /* Class utile */
-  
-  .smFont {
-    font-size: 16px;
+  .btn-hero {
+    font-size: 25px;
+    margin: 0;
   }
 
-  p {
-    margin-bottom: 0;
-    padding: 0.5vw;
-  }
-  
-  img {
-    padding-right: 1rem;
+  .btn-submit {
+    font-size: 14px;
+    margin: 0 auto;
+    display: block;
   }

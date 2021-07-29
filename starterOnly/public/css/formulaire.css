@@ -36,7 +36,6 @@
   }
   
   label {
-    font-family: var(--font-default);
     font-size: 14px;
     font-weight: 400;
     display: inline-block;

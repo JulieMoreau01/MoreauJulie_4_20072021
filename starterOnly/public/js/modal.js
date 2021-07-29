@@ -203,6 +203,15 @@ function checkboxFunction() {
 
 //console.log( "condition : " + checkboxFunction());
 
+/** Message de validation du formulaire */
+function success() {
+  validationSuccess = document.getElementById("successmessage");
+  validationSuccess.innerHTML = "<p>Thank you for submitting your registration details</p><p><input class='btn-submit' type='button' value='Close' id='submitButtonClose'/></p>";
+  closeSubmitButton = document.getElementById("submitButtonClose");
+  closeSubmitButton.addEventListener("click", closeModal);
+  
+};
+
 /** VALIDATION FORMULAIRE */
 
 function validateForm() {
@@ -215,8 +224,8 @@ function validateForm() {
   checkRadioButton = radioButton();
   if ((checkCheckbox == true) && (checkQuantity == true) && (checkRadioButton == true) && (checkEmail == true) && (checkDate == true) ) {
     console.log( "GOOD");
-    success();
-    return false;
+    //success();
+    return true ;
   } else {
     console.log( "BAD");
     return false;
@@ -224,12 +233,7 @@ function validateForm() {
 };
 
 
-function success() {
-  validationSuccess = document.getElementById("successmessage");
-  validationSuccess.innerHTML = "<p>Thank you for submitting your registration details</p><p><input class='btn-submit' type='button' value='Close' id='submitButtonClose'/></p>";
-  closeSubmitButton = document.getElementById("submitButtonClose");
-  closeSubmitButton.addEventListener("click", closeModal);
-};
+
 
 
 
