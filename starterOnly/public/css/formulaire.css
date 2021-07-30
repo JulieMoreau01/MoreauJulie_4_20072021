@@ -1,223 +1,217 @@
-.bground {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(26, 39, 156, 0.4);
-    /*padding: 0px 30px;*/
-  }
+/************* FORM AND SUCCESS MESSAGE  **************/
 
- .bground-success {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(26, 39, 156, 0.4);
-    /*padding: 0px 30px;*/
-  }
+/*** background form and success message ***/
+.bground, .bground-success {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
 
-  @keyframes modalopen {
-    from {
-      opacity: 0;
-      transform: translateY(-150px);
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  form, .success-message {
-    padding: 38px;
-    width: 100%;
-    max-width: 500px;
-    animation-name: modalopen;
-    animation-duration: var(--modal-duration);
-    background: var(--color-secondaire);
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    color: #fff;
-    margin: 87px auto;
-  }
-
-  .success-message {
-    height: 812px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 36px;
-    text-align: center;
-    padding: 0px;
-  }
-
-  .success-message .block-button {
-    position: absolute;
-    bottom: 18px;
-    width: 100%;
-  }
-  
-  label {
-    font-size: 14px;
-    font-weight: 400;
-    display: inline-block;
-    margin-bottom: 17px;
-  }
-
-  input {
-    padding: 8px;
-    border: 0.8px solid #ccc;
-    outline: none;
-    border-radius: 8px;
-  }
-
-  .text-control {
-    margin: 0;
-    padding: 8px;
-    width: 100%;
-    border-radius: 8px;
-    font-size: 20px;
-    height: 48px;
-  }
-
-  .formData {
-    position: relative;
-    margin: 0px 0px 10px 0px;
-    padding: 0px;
-  }
-
-  .formData[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.6em;
-    color: #e54858;
-    display: block;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    text-align: right;
-    line-height: 0.3;
+/*** Animation open modal***/
+@keyframes modalopen {
+  from {
     opacity: 0;
-    transition: 0.3s;
+    transform: translateY(-150px);
   }
-
-  .formData[data-error-visible="true"]::after {
+  to {
     opacity: 1;
   }
-  .formData[data-error-visible="true"] .text-control {
-    border: 2px solid #e54858;
-  }
+}
 
-  .checkbox-label,
-  .checkbox2-label {
-    position: relative;
-    margin-left: 36px;
-    font-size: 12px;
-    font-weight: normal;
-  }
+form, .success-message {
+  padding: 38px;
+  width: 100%;
+  max-width: 500px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: var(--color-secondaire);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  margin: 87px auto;
+}
 
-  .checkbox-label .checkbox-icon,
-  .checkbox2-label .checkbox-icon {
-    display: block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--color-tertiaire);
-    border-radius: 50%;
-    text-indent: 29px;
-    white-space: nowrap;
-    position: absolute;
-    left: -30px;
-    top: -1px;
-    transition: 0.3s;
-  }
+.success-message {
+  height: 812px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 36px;
+  text-align: center;
+  padding: 0px;
+}
 
-  .checkbox-label .checkbox-icon::after,
-  .checkbox2-label .checkbox-icon::after {
-    content: "";
-    width: 13px;
-    height: 13px;
-    background-color: var(--color-tertiaire);
-    border-radius: 50%;
-    text-indent: 29px;
-    white-space: nowrap;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    transition: 0.3s;
-    opacity: 0;
-  }
+.success-message .block-button {
+  position: absolute;
+  bottom: 18px;
+  width: 100%;
+}
 
-  .checkbox-input {
-    display: none;
-  }
+label {
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-block;
+  margin-bottom: 17px;
+}
 
-  .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
-  .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
-    opacity: 1;
-  }
+input {
+  padding: 8px;
+  border: 0.8px solid #ccc;
+  outline: none;
+  border-radius: 8px;
+}
 
-  .checkbox-input:checked + .checkbox2-label .checkbox-icon {
-    background: var(--color-tertiaire);
-  }
+.text-control {
+  margin: 0;
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 20px;
+  height: 48px;
+}
 
-  .checkbox2-label .checkbox-icon {
-    border-radius: 4px;
-    border: 0;
-    background: #c4c4c4;
-  }
+.text-label {
+  font-weight: normal;
+  font-size: 16px;
+  margin-bottom: 17px;
+}
 
-  .checkbox2-label .checkbox-icon::after {
-    width: 7px;
-    height: 4px;
-    border-radius: 2px;
-    background: transparent;
-    border: 2px solid transparent;
-    border-bottom-color: #fff;
-    border-left-color: #fff;
-    transform: rotate(-55deg);
-    left: 21%;
-    top: 19%;
-  }
+.formData {
+  position: relative;
+  margin: 0px 0px 10px 0px;
+  padding: 0px;
+}
 
-  .close, .close-success {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    width: 32px;
-    height: 32px;
-    opacity: 1;
-    cursor: pointer;
-    transform: scale(0.7);
-  }
+/*** Error message ***/
+.formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.6em;
+  color: #e54858;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: left;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+}
 
-  .close:before,
-  .close:after,
-  .close-success:before,
-  .close-success:after {
-    position: absolute;
-    left: 15px;
-    content: " ";
-    height: 33px;
-    width: 3px;
-    background-color: #fff;
-  }
+.formData[data-error-visible="true"]::after {
+  opacity: 1;
+}
 
-  .close:before, .close-success:before {
-    transform: rotate(45deg);
-  }
-  
-  .close:after, .close-success:after {
-    transform: rotate(-45deg);
-  }
+.formData[data-error-visible="true"] .text-control {
+  border: 2px solid #e54858;
+}
 
-  .text-label {
-    font-weight: normal;
-    font-size: 16px;
-    margin-bottom: 17px;
-  }
+/*** Checkbox city & condition ***/
+.checkbox-label,
+.checkbox2-label {
+  position: relative;
+  margin-left: 36px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.checkbox-label .checkbox-icon,
+.checkbox2-label .checkbox-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-tertiaire);
+  border-radius: 50%;
+  text-indent: 29px;
+  white-space: nowrap;
+  position: absolute;
+  left: -30px;
+  top: -1px;
+  transition: 0.3s;
+}
+
+.checkbox-label .checkbox-icon::after,
+.checkbox2-label .checkbox-icon::after {
+  content: "";
+  width: 13px;
+  height: 13px;
+  background-color: var(--color-tertiaire);
+  border-radius: 50%;
+  text-indent: 29px;
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-input:checked + .checkbox-label .checkbox-icon::after,
+.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
+  opacity: 1;
+}
+
+.checkbox-input:checked + .checkbox2-label .checkbox-icon {
+  background: var(--color-tertiaire);
+}
+
+.checkbox2-label .checkbox-icon {
+  border-radius: 4px;
+  border: 0;
+  background: #c4c4c4;
+}
+
+.checkbox2-label .checkbox-icon::after {
+  width: 7px;
+  height: 4px;
+  border-radius: 2px;
+  background: transparent;
+  border: 2px solid transparent;
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+  transform: rotate(-55deg);
+  left: 21%;
+  top: 19%;
+}
+
+/*** Close button***/
+.close, .close-success {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+
+.close:before,
+.close:after,
+.close-success:before,
+.close-success:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.close:before, .close-success:before {
+  transform: rotate(45deg);
+}
+
+.close:after, .close-success:after {
+  transform: rotate(-45deg);
+}

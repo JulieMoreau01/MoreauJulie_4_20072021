@@ -21,14 +21,14 @@
     <header class="topnav" id="myTopnav">
     <figure><img alt="logo" src="public/images/logo.png" /></figure>
       <nav>
-        <a href="javascript:void(0);" class="icon" onclick="editNav()">
-          <i class="fa fa-bars"></i>
-        </a>
+        
+        <p id="icon-nav"><i class="fa fa-bars"></i></p>
+        
         <ul>
-          <li><a href="#" class="active"><span>Event details</span></a></li>
-          <li><a href="#"><span>About us</span></a></li>
-          <li><a href="#"><span>Contact</span></a></li>
-          <li><a href="#"><span>Pass events</span></a></li>
+          <li><a href="#" class="active">Détails de l'événement</a></li>
+          <li><a href="#">A propos</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Évènements passés</a></li>
         </ul>
       </nav>
     </header>
@@ -36,24 +36,24 @@
     <main>
 
       <section class="hero-section">
-          <h1 class="hero-headline">US Nationwide<br/>Game-a-Thon</h1>
+          <h1 class="hero-headline">Marathon national<br/>de jeux vidéos</h1>
           <p class="hero-text">
-            Do you live to game? Our next gaming event is now accepting reservations for players, but spots are limited.
+            Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations... Places limitées ! 
           </p>
-          <button class="btn-hero" id="">Sign Up Now</button>
+          <button class="btn-hero" id="">Je m'inscris</button>
           <figure><img src="public/images/bg_img.jpg" alt="GameOn" /></figure>
       </section>
 
       <div class="bground-success">
         <div class="success-message">
           <span class="close-success"></span>
-          <p>Thank you for<br/>submitting your<br/>registration details</p>
+          <p>Merci !<br/>Votre réservation<br/>a été reçue.</p>
           <p class="block-button"><button class='btn-success'>Close</p>
         </div>
       </div>
 
       <div class="bground">
-            <form name="reserve" action="index.html" method="get" onsubmit="return validateForm();">
+            <form name="reserve" action="index.html" method="get" onsubmit="return validateForm();" id="formid">
               <span class="close"></span>
               
                 <p class="formData">
@@ -77,7 +77,7 @@
                 </p>
 
                 <p class="formData">
-                  <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                  <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label>
                   <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
                 </p>
 

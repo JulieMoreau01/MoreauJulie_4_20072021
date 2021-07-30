@@ -1,34 +1,35 @@
-/** FONCTION OUVERTURE FERMETURE DE LA NAV EN VERSION TELEPHONE */
+/**
+ * MOBILE NAV ADD CLASS RESPONSIVE
+ */
+const iconNav = document.getElementById("icon-nav");
+
+iconNav.addEventListener("click", editNav);
+
 function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
+  let navResponsive = document.getElementById("myTopnav");
+  if (navResponsive.className === "topnav") {
+    navResponsive.className += " responsive";
   } else {
-    x.className = "topnav";
+    navResponsive.className = "topnav";
   }
 }
 
 
 
-
-
-
-
-
 /**
- * OPEN & CLOSE MODAL AND SUCCESS MESSAGE
+ * CLOSE AND OPEN MODAL
  */
-
 const modalbg = document.querySelector(".bground");
 const modalbgSuccess = document.querySelector(".bground-success");
 const heroBtn = document.querySelector(".btn-hero");
 const closeButtonSucess = document.querySelector(".btn-success");
 const modalBtnClose = document.querySelector(".close");
 const sucessBtnClose = document.querySelector(".close-success");
+const formBlock = document.getElementById("formid");
 
 
 heroBtn.addEventListener("click", launchModal);
-heroBtn.addEventListener("click", launchSuccess);
+//heroBtn.addEventListener("click", launchSuccess);
 modalBtnClose.addEventListener("click", closeModal);
 closeButtonSucess.addEventListener("click", closeSuccess);
 sucessBtnClose.addEventListener("click", closeSuccess);
@@ -56,34 +57,33 @@ function closeSuccess() {
    * VALIDATION PRENOM - Non Vide + 2 Caractéres + sans espace + ONLY letters
    * @returns Boolean True or False
    */
-  
-   let firstInput = document.getElementById("first");
-   let parentFirstInput = firstInput.parentElement;
-   let InputFormat = /^[a-zA-Z]*$/; // only letters and not numbers
+let firstInput = document.getElementById("first");
+let parentFirstInput = firstInput.parentElement;
+let InputFormat = /^[a-zA-Z]*$/; // only letters and not numbers
    
-   firstInput.addEventListener("change", prenomFunction);
+firstInput.addEventListener("change", prenomFunction);
   
-  function prenomFunction() {
-      let firstInputValue = firstInput.value.replace(/ /g, "");
-      if ((firstInputValue != "") && (firstInputValue.length >= 2 ) && (firstInputValue.match(InputFormat) )) {
-      parentFirstInput.setAttribute("data-error-visible", "false");
-      parentFirstInput.setAttribute("data-error", "");
-      console.log("true");
-      return true;
-    } else {
-      parentFirstInput.setAttribute("data-error", "2 caractéres minimum");
-      parentFirstInput.setAttribute("data-error-visible", "true");
-      console.log("false");
-      return false;
-    }
-  };
+function prenomFunction() {
+    let firstInputValue = firstInput.value.replace(/ /g, "");
+    if ((firstInputValue != "") && (firstInputValue.length >= 2 ) && (firstInputValue.match(InputFormat) )) {
+    parentFirstInput.setAttribute("data-error-visible", "false");
+    parentFirstInput.setAttribute("data-error", "");
+    console.log("true");
+    return true;
+  } else {
+    parentFirstInput.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus");
+    parentFirstInput.setAttribute("data-error-visible", "true");
+    console.log("false");
+    return false;
+  }
+};
+
 
 
 /**
  * VALIDATION NOM - Not empty + 2 Caractéres + witout space + ONLY letters
  * @returns Boolean True or False
  */
-
 let lastInput = document.getElementById("last");
 let parentLastInput = lastInput.parentElement;
 
@@ -98,7 +98,7 @@ function lastFunction() {
       return true;
     } else {
       parentLastInput.setAttribute("data-error-visible", "true");
-      parentLastInput.setAttribute("data-error", "Au moins 2 caractere");
+      parentLastInput.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus");
       console.log("false");
       return false;
     }
@@ -123,7 +123,7 @@ function emailFunction() {
     console.log("true");
     return true;
   } else {
-    parentEmailInput.setAttribute("data-error", "Invalide");
+    parentEmailInput.setAttribute("data-error", "Adresse Invalide");
     parentEmailInput.setAttribute("data-error-visible", "true");
     console.log("false");
     return false;    
@@ -132,16 +132,16 @@ function emailFunction() {
 
 //console.log( "email : " + emailFunction());
 
-/** VALIDATION DATE */
+/**
+ * VALIDATION DATE - Not empty and More than 18 years
+ * @returns True or False
+ */
 let birthdateInput = document.getElementById("birthdate");
 let parentbirthdateInput = birthdateInput.parentElement;
 
 birthdateInput.addEventListener("change", dateFunction);
 birthdateInput.addEventListener("change", CalculAge);
-/**
- * VALIDATION DATE - Not empty and More than 18 years
- * @returns True or False
- */
+
 function dateFunction() {
   let calculageNb = CalculAge();
     if ((birthdateInput.value != "") && (calculageNb >= 18)) {
@@ -185,7 +185,7 @@ function CalculAge() {
 
 /**
  * VALIDATION NUMBER OF PARTICIPATION - Only numbers
- * @returns Boolean True or False
+ * @returns True or False or 0
  */
 let quantityInput = document.getElementById("quantity");
 let parentQuantityInput = quantityInput.parentElement;
@@ -206,7 +206,7 @@ function quantityFunction() {
     parentQuantityInput.setAttribute("data-error", "");
     return quantityValue;
   } else {
-    parentQuantityInput.setAttribute("data-error", "Invalide");
+    parentQuantityInput.setAttribute("data-error", "Vous devez entrer un nombre");
     parentQuantityInput.setAttribute("data-error-visible", "true");
     console.log("false");
     return false;    
@@ -218,7 +218,10 @@ function quantityFunction() {
 //console.log("return quantityfunction : " + quantityFunction());
 
 
-/** VALIDATION RADIO BOUTON */
+/**
+ * VALIDATION VILLE - Obligatory if number of participation != 0
+ * @returns Boolean True or False
+ */
 let radioInput1 = document.getElementById("location1");
 let radioInput2 = document.getElementById("location2");
 let radioInput3 = document.getElementById("location3");
@@ -251,7 +254,7 @@ function radioButton() {
     return true;
   } else {
     allRadio.setAttribute("data-error-visible", "true");
-    allRadio.setAttribute("data-error", "Obligatoire");
+    allRadio.setAttribute("data-error", "Vous devez choisir une option");
     console.log("false");
     return false;
   }
@@ -259,7 +262,10 @@ function radioButton() {
 
 //console.log( "radio : " + radioButton());
 
-/** VALIDATION CONDITION */
+/**
+ * VALIDATION GENERAL CONDITION
+ * @returns Boolean TRUE or False
+ */
 
 let conditionCheckbox = document.getElementById("checkbox1");
 let parentcheckbox1Input = conditionCheckbox.parentElement;
@@ -274,7 +280,7 @@ function checkboxFunction() {
     return true;
   } else {
     parentcheckbox1Input.setAttribute("data-error-visible", "true");
-    parentcheckbox1Input.setAttribute("data-error", "Obligatoire");
+    parentcheckbox1Input.setAttribute("data-error", "Vous devez accepter les termes et conditions");
     console.log("false");
     return false;
   }
@@ -283,7 +289,19 @@ function checkboxFunction() {
 //console.log( "condition : " + checkboxFunction());
 
 
-/** VALIDATION FORMULAIRE */
+/** Cancel submit and add Success message */
+formBlock.addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (validateForm() == true) {
+      theSuccessMessage();
+  } 
+});
+
+
+/**
+ * FORM VALIDATION
+ * @returns Boolean True or False
+ */
 function validateForm() {
   let checkPrenom = prenomFunction();
   let checkLast = lastFunction();
@@ -292,11 +310,17 @@ function validateForm() {
   let checkCheckbox = checkboxFunction();
   let checkQuantity = quantityFunction();
   let checkRadioButton = radioButton();
-  //if (checkQuantity == true) {
-  if ((checkCheckbox == true) && ((checkQuantity == true) || checkQuantity == 0 ) && (checkRadioButton == true) && (checkEmail == true) && (checkDate == true) && (checkPrenom == true) && (checkLast == true) ) {
+  if ((checkCheckbox == true) && 
+     ((checkQuantity == true) || checkQuantity == 0 ) && 
+     (checkRadioButton == true) && 
+     (checkEmail == true) && 
+     (checkDate == true) && 
+     (checkPrenom == true) && 
+     (checkLast == true) ) {
     console.log("SUPER GOOD");
-    //alert("OK");
-    return true ;
+    formBlock.style.display = "none";
+    modalbg.style.display = "none";
+   return true;
   } else {
     console.log("BAD");
     return false;
@@ -304,8 +328,6 @@ function validateForm() {
 };
 
 
-
-
-
-
-
+function theSuccessMessage() {
+    modalbgSuccess.style.display = "block";
+};
