@@ -27,7 +27,7 @@
 form, .success-message {
   padding: 38px;
   width: 100%;
-  max-width: 500px;
+  max-width: 536px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: var(--color-secondaire);
@@ -54,43 +54,52 @@ form, .success-message {
   width: 100%;
 }
 
-label {
+form label {
   font-size: 14px;
   font-weight: 400;
   display: inline-block;
+}
+
+form label[for="first"],
+form label[for="last"],
+form label[for="email"], 
+form label[for="birthdate"],
+form label[for="quantity"] {
   margin-bottom: 17px;
 }
 
-input {
-  padding: 8px;
-  border: 0.8px solid #ccc;
-  outline: none;
-  border-radius: 8px;
-}
-
-.text-control {
+form .text-control {
   margin: 0;
   padding: 8px;
   width: 100%;
   border-radius: 8px;
-  font-size: 20px;
-  height: 48px;
+  border: 0.8px solid #ccc;
+  outline: none;
+  height: 64px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
-.text-label {
-  font-weight: normal;
-  font-size: 16px;
-  margin-bottom: 17px;
+@media screen and (max-width: 768px) {
+  form .text-control {
+    height: 48px;
+  }
 }
 
-.formData {
+form .text-label {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+form .formData {
   position: relative;
   margin: 0px 0px 10px 0px;
   padding: 0px;
 }
 
 /*** Error message ***/
-.formData[data-error]::after {
+form  .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.6em;
   color: #e54858;
@@ -103,25 +112,32 @@ input {
   transition: 0.3s;
 }
 
-.formData[data-error-visible="true"]::after {
+form .formData[data-error-visible="true"]::after {
   opacity: 1;
 }
 
-.formData[data-error-visible="true"] .text-control {
+form .formData:nth-child(8)[data-error-visible="true"],
+form .formData:nth-child(9)[data-error-visible="true"], 
+form .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
 
 /*** Checkbox city & condition ***/
-.checkbox-label,
-.checkbox2-label {
+form .checkbox-label {
+  width: 23%;
+  margin-bottom: 7px;
+}
+
+form .checkbox-label,
+form .checkbox2-label {
   position: relative;
   margin-left: 36px;
   font-size: 12px;
   font-weight: normal;
 }
 
-.checkbox-label .checkbox-icon,
-.checkbox2-label .checkbox-icon {
+form .checkbox-label .checkbox-icon,
+form .checkbox2-label .checkbox-icon {
   display: block;
   width: 20px;
   height: 20px;
@@ -135,8 +151,8 @@ input {
   transition: 0.3s;
 }
 
-.checkbox-label .checkbox-icon::after,
-.checkbox2-label .checkbox-icon::after {
+form .checkbox-label .checkbox-icon::after,
+form .checkbox2-label .checkbox-icon::after {
   content: "";
   width: 13px;
   height: 13px;
@@ -152,26 +168,26 @@ input {
   opacity: 0;
 }
 
-.checkbox-input {
+form .checkbox-input {
   display: none;
 }
 
-.checkbox-input:checked + .checkbox-label .checkbox-icon::after,
-.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
+form .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
+form .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
   opacity: 1;
 }
 
-.checkbox-input:checked + .checkbox2-label .checkbox-icon {
+form .checkbox-input:checked + .checkbox2-label .checkbox-icon {
   background: var(--color-tertiaire);
 }
 
-.checkbox2-label .checkbox-icon {
+form .checkbox2-label .checkbox-icon {
   border-radius: 4px;
   border: 0;
   background: #c4c4c4;
 }
 
-.checkbox2-label .checkbox-icon::after {
+form .checkbox2-label .checkbox-icon::after {
   width: 7px;
   height: 4px;
   border-radius: 2px;
@@ -185,7 +201,8 @@ input {
 }
 
 /*** Close button***/
-.close, .close-success {
+form .close, 
+form .close-success {
   position: absolute;
   right: 15px;
   top: 15px;
@@ -196,10 +213,10 @@ input {
   transform: scale(0.7);
 }
 
-.close:before,
-.close:after,
-.close-success:before,
-.close-success:after {
+form .close:before,
+form .close:after,
+form .close-success:before,
+form .close-success:after {
   position: absolute;
   left: 15px;
   content: " ";
@@ -208,10 +225,16 @@ input {
   background-color: #fff;
 }
 
-.close:before, .close-success:before {
+form .close:before, 
+form .close-success:before {
   transform: rotate(45deg);
 }
 
-.close:after, .close-success:after {
+form .close:after, 
+form .close-success:after {
   transform: rotate(-45deg);
+}
+
+form .btn-submit {
+  margin-top: 20px;
 }

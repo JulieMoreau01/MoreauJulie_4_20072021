@@ -36,6 +36,7 @@ sucessBtnClose.addEventListener("click", closeSuccess);
 
 function launchModal() {
   modalbg.style.display = "block";
+  formBlock.style.display = "block";
 }
 
 function launchSuccess() {
@@ -149,12 +150,17 @@ function dateFunction() {
     parentbirthdateInput.setAttribute("data-error", "");
     console.log("true");
     return true;
-  } else {
+  } else if (calculageNb < 18) {
     parentbirthdateInput.setAttribute("data-error", "Vous n'avez pas 18 ans");
     parentbirthdateInput.setAttribute("data-error-visible", "true");
     console.log("false");
     return false;    
-  }
+  } else if (birthdateInput.value == "") {
+    parentbirthdateInput.setAttribute("data-error", "Vous devez entrer une date de naissance");
+    parentbirthdateInput.setAttribute("data-error-visible", "true");
+    console.log("false");
+    return false;    
+}
 };
 
 /**
@@ -175,7 +181,7 @@ function CalculAge() {
   if (m < 0 || (m === 0 && today.getDate() < dateNaissance.getDate())) {
       age = age - 1;
   }
-  console.log( "age1: " + age);
+  //console.log( "age1: " + age);
   return age;
 };
 
@@ -192,15 +198,17 @@ let parentQuantityInput = quantityInput.parentElement;
 let quantityFormat = /^[0-9]*$/; // only number and not letters
 
 quantityInput.addEventListener("change", quantityFunction);
+quantityInput.addEventListener("change", radioButton);
 
 function quantityFunction() {
   let quantityValue = quantityInput.value;
-  if((quantityValue != "") && (quantityValue != 0) && (quantityValue.match(quantityFormat))) {
+  //console.log("quantityfunction : " + quantityFunction());
+  if ((quantityValue != "") && (quantityValue != 0) && (quantityValue.match(quantityFormat))) {
     parentQuantityInput.setAttribute("data-error-visible", "false");
     parentQuantityInput.setAttribute("data-error", "");
     console.log("true");
     return true;
-  } else if ((quantityValue != "") && (quantityValue.match(quantityFormat)) && (quantityValue == 0) ) {
+  } else if (quantityValue === "0") {
     console.log("true zero");
     parentQuantityInput.setAttribute("data-error-visible", "false");
     parentQuantityInput.setAttribute("data-error", "");
@@ -215,7 +223,7 @@ function quantityFunction() {
 
 
 
-//console.log("return quantityfunction : " + quantityFunction());
+
 
 
 /**
@@ -242,13 +250,14 @@ radioInput6.addEventListener("change", radioButton);
 function radioButton() {
   let quantityZero = quantityFunction();
   //alert(quantityFunction()); 
-  if (((radioInput1.checked || radioInput2.checked || radioInput3.checked || radioInput4.checked || radioInput5.checked || radioInput6.checked) == true)) {
+  if (((radioInput1.checked || radioInput2.checked || radioInput3.checked || radioInput4.checked || radioInput5.checked || radioInput6.checked ) == true) || (quantityZero === "0")) {
     console.log("true");
     allRadio.setAttribute("data-error-visible", "false");
     allRadio.setAttribute("data-error", "");
     return true;
-  } else if (quantityZero == 0) {
-    console.log("true zero radio");
+  } else if (quantityZero === "0") {
+    console.log("true");
+    console.log("quantityfunction : " + quantityFunction());
     allRadio.setAttribute("data-error-visible", "false");
     allRadio.setAttribute("data-error", "");
     return true;
@@ -294,6 +303,7 @@ formBlock.addEventListener('submit', function (e) {
   e.preventDefault();
   if (validateForm() == true) {
       theSuccessMessage();
+      formBlock.reset();
   } 
 });
 
