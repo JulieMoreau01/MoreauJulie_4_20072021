@@ -1,66 +1,27 @@
 /**
- * MOBILE NAV ADD AND REMOVE CLASS RESPONSIVE
+ * OPEN MODAL
  */
-const iconNavOpen = document.getElementById("icon-nav-open");
-const iconNavClose = document.getElementById("icon-nav-close");
-const navResponsive = document.getElementById("myTopnav");
 
-iconNavOpen.addEventListener("click", editNavOpen);
-iconNavClose.addEventListener("click", editNavClose);
-
-function editNavOpen() {
-  if (navResponsive.className === "topnav") {
-    navResponsive.className = "topnav responsive";
-    iconNavOpen.style.display = "none";
-    iconNavClose.style.display = "block";
-  }
-};
-
-function editNavClose() {
-  if (navResponsive.className === "topnav responsive") {
-    navResponsive.className = "topnav";
-    iconNavOpen.style.display = "block";
-    iconNavClose.style.display = "none";
-  }
-};
-
-
-
-
-/**
- * CLOSE AND OPEN MODAL
- */
-const modalbg = document.querySelector(".bground");
-const modalbgSuccess = document.querySelector(".bground-success");
 const heroBtn = document.querySelector(".btn-hero");
-const closeButtonSucess = document.querySelector(".btn-success");
-const modalBtnClose = document.querySelector(".close");
-const sucessBtnClose = document.querySelector(".close-success");
+const modalbg = document.querySelector(".bground");
 const formBlock = document.getElementById("formid");
-
-
 heroBtn.addEventListener("click", launchModal);
-//heroBtn.addEventListener("click", launchSuccess);
-modalBtnClose.addEventListener("click", closeModal);
-closeButtonSucess.addEventListener("click", closeSuccess);
-sucessBtnClose.addEventListener("click", closeSuccess);
 
 function launchModal() {
   modalbg.style.display = "block";
   formBlock.style.display = "block";
 }
 
-function launchSuccess() {
-  modalbgSuccess.style.display = "block";
-}
+
+
+/**
+ * CLOSE MODAL
+ */
+const modalBtnClose = document.querySelector(".close");
+modalBtnClose.addEventListener("click", closeModal);
 
 function closeModal() {
   modalbg.style.display = "none";
-  modalbgSuccess.style.display = "none";
-}
-
-function closeSuccess() {
-  modalbgSuccess.style.display = "none";
 }
 
 
@@ -152,10 +113,10 @@ let birthdateInput = document.getElementById("birthdate");
 let parentbirthdateInput = birthdateInput.parentElement;
 
 birthdateInput.addEventListener("change", dateFunction);
-birthdateInput.addEventListener("change", CalculAge);
+birthdateInput.addEventListener("change", calculAge);
 
 function dateFunction() {
-  let calculageNb = CalculAge();
+  let calculageNb = calculAge();
     if ((birthdateInput.value != "") && (calculageNb >= 18)) {
     parentbirthdateInput.setAttribute("data-error-visible", "false");
     parentbirthdateInput.setAttribute("data-error", "");
@@ -171,14 +132,14 @@ function dateFunction() {
     parentbirthdateInput.setAttribute("data-error-visible", "true");
     console.log("false");
     return false;    
-}
+  }
 };
 
 /**
  * CALCUL AGE WITH BIRTH DATE
  * @returns age number
  */
-function CalculAge() {  
+function calculAge() {  
   let today = new Date();
   let dtn = birthdateInput.value; // read date of birth
   
@@ -231,9 +192,6 @@ function quantityFunction() {
     return false;    
   }
 };
-
-
-
 
 
 
@@ -309,7 +267,10 @@ function checkboxFunction() {
 //console.log( "condition : " + checkboxFunction());
 
 
-/** Cancel submit and add Success message */
+
+/** 
+ * If ValidateForm = True Send Success Message and Reset Form
+ */
 formBlock.addEventListener('submit', function (e) {
   e.preventDefault();
   if (validateForm() == true) {
@@ -349,6 +310,25 @@ function validateForm() {
 };
 
 
+/**
+ * OPEN SUCCESS MESSAGE
+ */
+const modalbgSuccess = document.querySelector(".bground-success");
+
 function theSuccessMessage() {
     modalbgSuccess.style.display = "block";
 };
+
+
+
+/**
+ * CLOSE SUCCESS MESSAGE
+ */
+ const closeButtonSucess = document.querySelector(".btn-success");
+ const sucessBtnClose = document.querySelector(".close-success");
+ closeButtonSucess.addEventListener("click", closeSuccess);
+ sucessBtnClose.addEventListener("click", closeSuccess);
+ 
+ function closeSuccess() {
+   modalbgSuccess.style.display = "none";
+ }

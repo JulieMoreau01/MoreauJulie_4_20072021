@@ -3,14 +3,20 @@
 /*** background form and success message ***/
 .bground, .bground-success {
   display: none;
-  position: fixed;
-  z-index: 1;
+  position: absolute;
+  z-index: 5;
   left: 0;
   top: 0;
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
-  overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  overflow: hidden;
+  background-color: rgb(255, 255, 255, 1);
+}
+
+@media screen and (max-width: 768px) {
+  .bground, .bground-success {
+    margin-top: 87px;
+  }
 }
 
 /*** Animation open modal***/
@@ -25,17 +31,24 @@
 }
 
 form, .success-message {
-  padding: 38px;
+  padding: 38px 38px 17px 38px;
   width: 100%;
+  height: max-content;
   max-width: 536px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: var(--color-secondaire);
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   overflow: hidden;
   position: relative;
   color: #fff;
   margin: 87px auto;
+}
+
+@media screen and (max-width: 768px) {
+  form, .success-message {
+    margin: 0px auto;
+  }
 }
 
 .success-message {
@@ -56,7 +69,6 @@ form, .success-message {
 
 form label {
   font-size: 14px;
-  font-weight: 400;
   display: inline-block;
 }
 
@@ -65,19 +77,18 @@ form label[for="last"],
 form label[for="email"], 
 form label[for="birthdate"],
 form label[for="quantity"] {
-  margin-bottom: 17px;
+  margin-bottom: 14px;
 }
 
 form .text-control {
   margin: 0;
   padding: 8px;
   width: 100%;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   border: 0.8px solid #ccc;
   outline: none;
   height: 64px;
   font-size: 18px;
-  font-weight: 400;
 }
 
 @media screen and (max-width: 768px) {
@@ -88,8 +99,8 @@ form .text-control {
 
 form .text-label {
   font-size: 14px;
-  font-weight: 400;
   margin-bottom: 12px;
+  display: block;
 }
 
 form .formData {
@@ -102,7 +113,7 @@ form .formData {
 form  .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.6em;
-  color: #e54858;
+  color: var(--color-error);
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
@@ -116,16 +127,22 @@ form .formData[data-error-visible="true"]::after {
   opacity: 1;
 }
 
-form .formData:nth-child(8)[data-error-visible="true"],
-form .formData:nth-child(9)[data-error-visible="true"], 
+form .formData:nth-child(7)[data-error-visible="true"],
+form .formData:nth-child(8)[data-error-visible="true"], 
 form .formData[data-error-visible="true"] .text-control {
-  border: 2px solid #e54858;
+  border: 2px solid var(--color-error);
 }
 
 /*** Checkbox city & condition ***/
 form .checkbox-label {
   width: 23%;
   margin-bottom: 7px;
+}
+
+@media screen and (max-width: 768px) {
+  form .checkbox-label {
+    width: 33%;
+  }
 }
 
 form .checkbox-label,
@@ -202,7 +219,7 @@ form .checkbox2-label .checkbox-icon::after {
 
 /*** Close button***/
 form .close, 
-form .close-success {
+.success-message .close-success {
   position: absolute;
   right: 15px;
   top: 15px;
@@ -215,8 +232,8 @@ form .close-success {
 
 form .close:before,
 form .close:after,
-form .close-success:before,
-form .close-success:after {
+.success-message .close-success:before,
+.success-message .close-success:after {
   position: absolute;
   left: 15px;
   content: " ";
@@ -226,12 +243,12 @@ form .close-success:after {
 }
 
 form .close:before, 
-form .close-success:before {
+.success-message .close-success:before {
   transform: rotate(45deg);
 }
 
 form .close:after, 
-form .close-success:after {
+.success-message .close-success:after {
   transform: rotate(-45deg);
 }
 

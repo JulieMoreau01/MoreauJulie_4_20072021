@@ -20,7 +20,8 @@
   <body>
 
     <header class="topnav" id="myTopnav">
-    <figure><img alt="logo" src="public/images/logo.png" /></figure>
+
+      <figure><img alt="logo" src="public/images/logo.png" /></figure>
 
       <nav>
         <p>
@@ -34,7 +35,9 @@
           <li><a href="#">Évènements passés</a></li>
         </ul>
       </nav>
+
     </header>
+
 
     <main>
 
@@ -61,10 +64,12 @@
       <div class="bground">
         <form name="reserve" action="index.html" method="get" onsubmit="return validateForm();" id="formid">
           <span class="close"></span>
+
             <p class="formData">
               <label for="first">Prénom <sup>*</sup></label>
               <input class="text-control" type="text" id="first" name="first" />
             </p>
+
             <p class="formData">
               <label for="last">Nom <sup>*</sup></label>
               <input class="text-control" type="text" id="last" name="last" />
@@ -81,8 +86,8 @@
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ? <sup>*</sup></label>
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
             </p>
-            <p class="text-label">Quelles villes ?</p>
             <p class="formData" id="checkbox">
+              <span class="text-label">Quelles villes ?</span>
               <input class="checkbox-input" type="checkbox" id="location1" name="location" value="New York"/>
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
@@ -138,6 +143,7 @@
             </p>
         </form>
       </div>
+
     </main>
     
     <footer>
@@ -147,5 +153,6 @@
     </footer>
     <!--Javascript-->
     <script src="public/js/modal.js"></script>
+    <script src="public/js/nav.js"></script>
   </body>
 </html>
