@@ -1,18 +1,29 @@
 /**
- * MOBILE NAV ADD CLASS RESPONSIVE
+ * MOBILE NAV ADD AND REMOVE CLASS RESPONSIVE
  */
-const iconNav = document.getElementById("icon-nav");
+const iconNavOpen = document.getElementById("icon-nav-open");
+const iconNavClose = document.getElementById("icon-nav-close");
+const navResponsive = document.getElementById("myTopnav");
 
-iconNav.addEventListener("click", editNav);
+iconNavOpen.addEventListener("click", editNavOpen);
+iconNavClose.addEventListener("click", editNavClose);
 
-function editNav() {
-  let navResponsive = document.getElementById("myTopnav");
+function editNavOpen() {
   if (navResponsive.className === "topnav") {
-    navResponsive.className += " responsive";
-  } else {
-    navResponsive.className = "topnav";
+    navResponsive.className = "topnav responsive";
+    iconNavOpen.style.display = "none";
+    iconNavClose.style.display = "block";
   }
-}
+};
+
+function editNavClose() {
+  if (navResponsive.className === "topnav responsive") {
+    navResponsive.className = "topnav";
+    iconNavOpen.style.display = "block";
+    iconNavClose.style.display = "none";
+  }
+};
+
 
 
 
