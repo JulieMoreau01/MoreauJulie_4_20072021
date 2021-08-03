@@ -2,9 +2,9 @@
  * OPEN MODAL
  */
 
-const heroBtn = document.querySelector(".btn-hero");
-const modalbg = document.querySelector(".bground");
-const formBlock = document.getElementById("formid");
+let heroBtn = document.querySelector(".btn-hero");
+let modalbg = document.querySelector(".bground");
+let formBlock = document.getElementById("formid");
 heroBtn.addEventListener("click", launchModal);
 
 function launchModal() {
@@ -17,7 +17,7 @@ function launchModal() {
 /**
  * CLOSE MODAL
  */
-const modalBtnClose = document.querySelector(".close");
+let modalBtnClose = document.querySelector(".close");
 modalBtnClose.addEventListener("click", closeModal);
 
 function closeModal() {
@@ -103,7 +103,7 @@ function emailFunction() {
   }
 };
 
-//console.log( "email : " + emailFunction());
+
 
 /**
  * VALIDATION DATE - Not empty and More than 18 years
@@ -135,6 +135,8 @@ function dateFunction() {
   }
 };
 
+
+
 /**
  * CALCUL AGE WITH BIRTH DATE
  * @returns age number
@@ -157,8 +159,6 @@ function calculAge() {
   return age;
 };
 
-
-//console.log( "date : " + dateFunction());
 
 
 /**
@@ -215,10 +215,8 @@ radioInput4.addEventListener("change", radioButton);
 radioInput5.addEventListener("change", radioButton);
 radioInput6.addEventListener("change", radioButton);
 
-
 function radioButton() {
   let quantityZero = quantityFunction();
-  //alert(quantityFunction()); 
   if (((radioInput1.checked || radioInput2.checked || radioInput3.checked || radioInput4.checked || radioInput5.checked || radioInput6.checked ) == true) || (quantityZero === "0")) {
     console.log("true");
     allRadio.setAttribute("data-error-visible", "false");
@@ -238,7 +236,7 @@ function radioButton() {
   }
 };
 
-//console.log( "radio : " + radioButton());
+
 
 /**
  * VALIDATION GENERAL CONDITION
@@ -264,8 +262,6 @@ function checkboxFunction() {
   }
 };
 
-//console.log( "condition : " + checkboxFunction());
-
 
 
 /** 
@@ -278,6 +274,7 @@ formBlock.addEventListener('submit', function (e) {
       formBlock.reset();
   } 
 });
+
 
 
 /**
@@ -310,10 +307,11 @@ function validateForm() {
 };
 
 
+
 /**
  * OPEN SUCCESS MESSAGE
  */
-const modalbgSuccess = document.querySelector(".bground-success");
+let modalbgSuccess = document.querySelector(".bground-success");
 
 function theSuccessMessage() {
     modalbgSuccess.style.display = "block";
@@ -324,8 +322,8 @@ function theSuccessMessage() {
 /**
  * CLOSE SUCCESS MESSAGE
  */
- const closeButtonSucess = document.querySelector(".btn-success");
- const sucessBtnClose = document.querySelector(".close-success");
+ let closeButtonSucess = document.querySelector(".btn-success");
+ let sucessBtnClose = document.querySelector(".close-success");
  closeButtonSucess.addEventListener("click", closeSuccess);
  sucessBtnClose.addEventListener("click", closeSuccess);
  
